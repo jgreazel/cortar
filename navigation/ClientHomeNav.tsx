@@ -17,8 +17,8 @@ const ClientHomeNav = () => {
   return (
     <BookingContext.Provider value={value}>
       <Stack.Navigator>
-        // todo maybe move all route strings to a ROUTES file
-        // could separate into different groups
+        {/* // todo maybe move all route strings to a ROUTES file */}
+        {/* could separate into different groups */}
         <Stack.Screen
           name="Action"
           component={ActionScreen}
