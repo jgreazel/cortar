@@ -8,11 +8,11 @@ import { NavBar } from "./navigation";
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         <Text>My first react native project and its up on github!</Text>
         <StatusBar style="auto" />
-      </View>
-      <NavBar />
+      </View> */}
+      <NavBar/>
     </NavigationContainer>
   );
 }
