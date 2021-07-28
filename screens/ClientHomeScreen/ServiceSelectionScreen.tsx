@@ -45,11 +45,11 @@ const ServiceSelectionScreen = (props: Props) => {
       >
         <Card.Title
           title="Men's Haircut"
-          right={(props) =>
-            services.includes("Men's Haircut") && (
-              <Ionicons {...props} name={"checkmark-circle"} color="#2A69AC" />
-            )
-          }
+        //   right={(props) =>
+        //     services.includes("Men's Haircut") && (
+        //       <Ionicons {...props} name={"checkmark-circle"} color="#2A69AC" />
+        //     )
+        //   }
         />
       </Card>
       <Card
@@ -69,11 +69,11 @@ const ServiceSelectionScreen = (props: Props) => {
       >
         <Card.Title
           title="Women's Haircut"
-          right={(props) =>
-            services.includes("Women's Haircut") && (
-              <Ionicons {...props} name={"checkmark-circle"} color="#2A69AC" />
-            )
-          }
+        //   right={(props) =>
+        //     services.includes("Women's Haircut") && (
+        //       <Ionicons {...props} name={"checkmark-circle"} color="#2A69AC" />
+        //     )
+        //   }
         />
       </Card>
 
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
   selectedCard: {
     borderWidth: 2,
     borderColor: "#3182CE",
-    color: "#2A69AC",
+    backgroundColor: '#E2E8F0',
+    margin: 6
   },
   container: {
     flex: 1,
