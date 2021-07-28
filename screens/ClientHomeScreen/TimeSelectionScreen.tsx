@@ -11,7 +11,7 @@ type Props = {
 };
 
 const TimeSelectionScreen = (props: Props) => {
-  const { date, setDate, time, setTime } = useContext(BookingContext);
+  const { date, setDate, time, setTime, services } = useContext(BookingContext);
 
   return (
     <View >
@@ -56,7 +56,7 @@ const TimeSelectionScreen = (props: Props) => {
         <Button
         style={styles.button}
           mode="contained"
-          onPress={() => props.navigation.navigate("")}
+          onPress={() => console.log({date, time, services})}
         >
           Next
         </Button>
