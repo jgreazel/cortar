@@ -11,8 +11,16 @@ const Stack = createStackNavigator();
 
 const ClientHomeNav = () => {
   const [services, setServices] = useState<string[]>([]);
-  const [date, setDate] = useState<Date>();
-  const value: BookingContextData = { services, setServices, date, setDate };
+  const [date, setDate] = useState<string>();
+  const [time, setTime] = useState<string>();
+  const value: BookingContextData = {
+    services,
+    setServices,
+    date,
+    setDate,
+    time,
+    setTime,
+  };
 
   return (
     <BookingContext.Provider value={value}>
