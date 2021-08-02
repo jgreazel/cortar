@@ -10,6 +10,7 @@ export type BookingContextData = {
   setTime: Function;
 };
 
+// todo give types to store avail. services, dates, times for appts. from container comp.
 const BookingContext = React.createContext<BookingContextData>({
   services: [],
   date: undefined,

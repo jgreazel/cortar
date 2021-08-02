@@ -23,10 +23,11 @@ const ClientHomeNav = () => {
   };
 
   return (
+    // todo I dont like having the context in this file, move to app.tsx somehow to decouple
     <BookingContext.Provider value={value}>
       <Stack.Navigator>
         {/* // todo maybe move all route strings to a ROUTES file */}
-        {/* could separate into different groups */}
+        {/* could separate into different groups inside routes file */}
         <Stack.Screen
           name="Action"
           component={ActionScreen}

@@ -2,57 +2,44 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import ClientHomeNav from "./ClientHomeNav";
-import { ClientFeedScreen, ClientProfileScreen, ClientScheduleScreen } from "../screens";
+export type NavBarProps = {
+  screens: {
+    // todo import GLYPH? type for icon names
+    name: string;
+    component: any;
+    iconString: string;
+  }[];
+};
 
 const Tab = createBottomTabNavigator();
 
 // Todo: modularization
+// take screens as a prop object to decouple, then app.tsx could utilize navigation and contexts
 // todo: will probably end up needing to split logic between client and barber
-const NavBar = () => (
+const NavBar = (props: NavBarProps) => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
       tabBarIcon: ({ focused, color, size }) => {
-        if (route.name === "Home")
-          return (
-            <Ionicons
-              name={focused ? "home" : "home-outline"}
-              color={color}
-              size={size}
-            />
-          );
-        if (route.name === "Schedule")
-          return (
-            <Ionicons
-              name={focused ? "calendar" : "calendar-outline"}
-              color={color}
-              size={size}
-            />
-          );
-        if (route.name === "Feed")
-          return (
-            <Ionicons
-              name={focused ? "newspaper" : "newspaper-outline"}
-              color={color}
-              size={size}
-            />
-          );
-        if (route.name === "Profile")
-          return (
-            <Ionicons
-              name={focused ? "person" : "person-outline"}
-              color={color}
-              size={size}
-            />
-          );
-        return null;
+        return (
+          <Ionicons
+            // @ts-ignore
+            name={props.screens
+              .find((x) => x.name === route.name)
+              ?.iconString.concat(focused ? "" : "-outline")}
+            size={size}
+            color={color}
+          />
+        );
       },
     })}
   >
-    <Tab.Screen name="Home" component={ClientHomeNav} />
-    <Tab.Screen name="Schedule" component={ClientScheduleScreen} />
-    <Tab.Screen name="Feed" component={ClientFeedScreen} />
-    <Tab.Screen name="Profile" component={ClientProfileScreen} />
+    {props.screens.map((screen, idx) => (
+      <Tab.Screen
+        key={`${idx} - ${screen.name}`}
+        name={screen.name}
+        component={screen.component}
+      />
+    ))}
   </Tab.Navigator>
 );
 

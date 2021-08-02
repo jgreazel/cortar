@@ -1,1 +1,2 @@
-export { default as NavBar } from "./NavBar";
+export { default as ClientHomeNav } from "./ClientHomeNav";
+export { default as NavBar, NavBarProps } from "./NavBar";
