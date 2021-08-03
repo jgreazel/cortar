@@ -11,7 +11,7 @@ type Props = {
 };
 
 const ServiceSelectionScreen = (props: Props) => {
-  const { services, setServices } = useContext(BookingContext);
+  const { services, setServices, servicesOffered } = useContext(BookingContext);
 
   // todo next: create cards for options and callback to set state
   return (
@@ -28,54 +28,26 @@ const ServiceSelectionScreen = (props: Props) => {
 
       {/* // todo def need to something better about this */}
       {/* // data will likely come in through a prop from container from server and be mapped */}
-      <Card
-        style={
-          services.includes("Men's Haircut")
-            ? [styles.card, styles.selectedCard]
-            : styles.card
-        }
-        onPress={() =>
-          services.includes("Men's Haircut")
-            ? setServices(services.filter((x) => x !== "Men's Haircut"))
-            : setServices((oldArray: string[]) => [
-                ...oldArray,
-                "Men's Haircut",
-              ])
-        }
-      >
-        <Card.Title
-          title="Men's Haircut"
-        //   right={(props) =>
-        //     services.includes("Men's Haircut") && (
-        //       <Ionicons {...props} name={"checkmark-circle"} color="#2A69AC" />
-        //     )
-        //   }
-        />
-      </Card>
-      <Card
-        style={
-          services.includes("Women's Haircut")
-            ? [styles.card, styles.selectedCard]
-            : styles.card
-        }
-        onPress={() =>
-          services.includes("Women's Haircut")
-            ? setServices(services.filter((x) => x !== "Women's Haircut"))
-            : setServices((oldArray: string[]) => [
-                ...oldArray,
-                "Women's Haircut",
-              ])
-        }
-      >
-        <Card.Title
-          title="Women's Haircut"
-        //   right={(props) =>
-        //     services.includes("Women's Haircut") && (
-        //       <Ionicons {...props} name={"checkmark-circle"} color="#2A69AC" />
-        //     )
-        //   }
-        />
-      </Card>
+      {servicesOffered.map((offeredService) => (
+        <Card
+          key={offeredService.name}
+          style={
+            services.includes(offeredService)
+              ? [styles.card, styles.selectedCard]
+              : styles.card
+          }
+          onPress={() =>
+            services.includes(offeredService)
+              ? setServices(services.filter((x) => x !== offeredService))
+              : setServices((oldArray: string[]) => [
+                  ...oldArray,
+                  offeredService,
+                ])
+          }
+        >
+          <Card.Title title={offeredService.name} />
+        </Card>
+      ))}
 
       {services.length > 0 && (
         <Button
@@ -100,8 +72,8 @@ const styles = StyleSheet.create({
   selectedCard: {
     borderWidth: 2,
     borderColor: "#3182CE",
-    backgroundColor: '#E2E8F0',
-    margin: 6
+    backgroundColor: "#E2E8F0",
+    margin: 6,
   },
   container: {
     flex: 1,

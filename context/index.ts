@@ -1,1 +1,2 @@
-export { default as BookingContext, BookingContextData } from "./BookingContext";
+export { default as BookingContext } from "./BookingContext";
+export { BookingContextData, ApptService } from "./types";

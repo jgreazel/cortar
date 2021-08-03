@@ -1,24 +1,18 @@
 import React from "react";
+import { DateTime } from "luxon";
 
-export type BookingContextData = {
-  services: string[];
-  date?: string;
-  time?: string;
-
-  setServices: Function;
-  setDate: Function;
-  setTime: Function;
-};
+import { BookingContextData } from ".";
 
 // todo give types to store avail. services, dates, times for appts. from container comp.
 const BookingContext = React.createContext<BookingContextData>({
+  servicesOffered: [],
+  scheduledAppointments: [],
+
   services: [],
-  date: undefined,
-  time: undefined,
+  dateTime: DateTime.now(),
 
   setServices: () => {},
-  setDate: () => {},
-  setTime: () => {},
+  setDateTime: () => {},
 });
 
 BookingContext.displayName = "BookingContext";

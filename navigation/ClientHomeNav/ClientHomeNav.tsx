@@ -1,25 +1,36 @@
 import React, { useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { DateTime } from "luxon";
+
 import {
   ActionScreen,
   ServiceSelectionScreen,
   TimeSelectionScreen,
-} from "../screens/ClientHomeScreen";
-import { BookingContext, BookingContextData } from "../context";
+} from "../../screens/ClientHomeScreen";
+import { BookingContext, BookingContextData, ApptService } from "../../context";
+
+export type ClientHomeNavProps = {
+  servicesOffered: ApptService[];
+  scheduledAppointments: {
+    dateTime: DateTime;
+    service: string;
+    lengthInMins: number;
+  }[];
+};
 
 const Stack = createStackNavigator();
 
-const ClientHomeNav = () => {
-  const [services, setServices] = useState<string[]>([]);
-  const [date, setDate] = useState<string>();
-  const [time, setTime] = useState<string>();
+const ClientHomeNav = (props: ClientHomeNavProps) => {
+  const [services, setServices] = useState<ApptService[]>([]);
+  const [dateTime, setDateTime] = useState<DateTime>(DateTime.now());
+
   const value: BookingContextData = {
+    servicesOffered: props.servicesOffered,
+    scheduledAppointments: props.scheduledAppointments,
     services,
     setServices,
-    date,
-    setDate,
-    time,
-    setTime,
+    dateTime,
+    setDateTime,
   };
 
   return (
