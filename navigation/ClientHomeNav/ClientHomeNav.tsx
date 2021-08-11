@@ -22,7 +22,9 @@ const Stack = createStackNavigator();
 
 const ClientHomeNav = (props: ClientHomeNavProps) => {
   const [services, setServices] = useState<ApptService[]>([]);
-  const [dateTime, setDateTime] = useState<DateTime>(DateTime.now());
+  const [dateTime, setDateTime] = useState<DateTime>(
+    DateTime.local(1998, 8, 15, 17, 55)
+  );
 
   const value: BookingContextData = {
     servicesOffered: props.servicesOffered,
