@@ -14,6 +14,16 @@ const dummyData: ClientScheduleScreenProps = {
       clientNote: "Wanting to try a new look ;)",
       dateTime: DateTime.fromISO("2021-08-25T08:30:00"),
     },
+    {
+      service: Services.ADULTCUT,
+      clientNote: "Short and sweet",
+      dateTime: DateTime.fromISO("2021-08-25T10:30:00"),
+    },
+    {
+      service: Services.KIDSCUT,
+      clientNote: "Hopefully she'll behave better than last time",
+      dateTime: DateTime.fromISO("2021-08-29T08:30:00"),
+    },
   ],
   navigateHome: () => () => {},
 };

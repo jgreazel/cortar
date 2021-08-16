@@ -33,7 +33,7 @@ const TimeSelectionScreen = (props: TimeSelectionViewProps) => {
 
   return (
     <View>
-      <Button onPress={() => console.log({ dateTime })}>log</Button>
+      {/* <Button onPress={() => console.log({ dateTime })}>log</Button> */}
       {/* <Button onPress={() => console.log({ now: DateTime.now() })}>
         log now
       </Button>
@@ -106,5 +106,10 @@ const styles = StyleSheet.create({
   flex: {
     display: "flex",
     flexDirection: "row",
+    alignItems: 'center',
+    margin: 10
+  },
+  timeRow: {
+    margin: 10,
   },
 });

@@ -44,17 +44,35 @@ const ClientHomeNav = (props: ClientHomeNavProps) => {
         <Stack.Screen
           name="Action"
           component={ActionScreen}
-          options={{ title: "Home" }}
+          options={{
+            title: "Home",
+            headerStyle: {
+              backgroundColor: "#3182CE",
+            },
+            headerTintColor: "#fff"
+          }}
         />
         <Stack.Screen
           name="Service"
           component={ServiceSelectionScreen}
-          options={{ title: "Select A Service" }}
+          options={{
+            title: "Select A Service",
+            headerStyle: {
+              backgroundColor: "#3182CE",
+            },
+            headerTintColor: "#fff"
+          }}
         />
         <Stack.Screen
           name="Time"
           component={TimeSelectionScreen}
-          options={{ title: "Book A Time" }}
+          options={{
+            title: "Book A Time",
+            headerStyle: {
+              backgroundColor: "#3182CE",
+            },
+            headerTintColor: "#fff"
+          }}
         />
       </Stack.Navigator>
     </BookingContext.Provider>

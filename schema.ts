@@ -21,6 +21,14 @@ export const Services = {
   BANGBEARDTRIM: { title: "Bang/Beard Trim", length: 30 },
 };
 
+export type Post = {
+  title: string,
+  description?: string,
+  image?: string,
+  datePosted: DateTime,
+  featured?: boolean
+}
+
 /**
  * Next steps:
  * 1. create back end

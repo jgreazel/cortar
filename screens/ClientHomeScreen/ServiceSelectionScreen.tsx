@@ -16,7 +16,7 @@ const ServiceSelectionScreen = (props: Props) => {
   // todo next: create cards for options and callback to set state
   return (
     <View style={styles.container}>
-      <Button
+      {/* <Button
         // for testing
         onPress={() =>
           setServices((oldArray: string[]) => [...oldArray, "hello"])
@@ -24,7 +24,7 @@ const ServiceSelectionScreen = (props: Props) => {
       >
         Add
       </Button>
-      <Button onPress={() => console.log(services)}>Log</Button>
+      <Button onPress={() => console.log(services)}>Log</Button> */}
 
       {/* // todo def need to something better about this */}
       {/* // data will likely come in through a prop from container from server and be mapped */}
