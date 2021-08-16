@@ -9,7 +9,7 @@ import { BookingContext } from "../../../context";
 
 // todo container to get available times per day from server
 export type TimeSelectionViewProps = {
-  // ? move to props for container?
+  // ? move navigation to props for container? see: ClientScheduleScreen
   // navigation: any;
   availableTimes: DateTime[];
   onDateSelect: Function;
