@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
     margin: 8,
     alignSelf: "center",
   },
+  selectedCard: {
+    width: "100%",
+    marginBottom: 8,
+    alignSelf: "center",
+  },
   bold: {
     fontWeight: "bold",
     flex: 1,
@@ -20,7 +25,7 @@ const styles = StyleSheet.create({
   },
   img: {
     flex: 2,
-    maxHeight: 100
+    maxHeight: 100,
   },
   row: {
     flexDirection: "row",
@@ -56,7 +61,7 @@ const ClientFeedScreen = (props: ClientFeedProps) => {
   return (
     <ScrollView>
       {ftPost && (
-        <Card style={styles.card}>
+        <Card style={styles.selectedCard}>
           <Card.Title title={ftPost.title} right={FtSubtitle} />
           <Card.Content>
             <Divider />
