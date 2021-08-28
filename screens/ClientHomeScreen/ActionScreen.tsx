@@ -2,20 +2,22 @@ import React from "react";
 import { View } from "react-native";
 import { Button } from "react-native-paper";
 
-import { ActionScreenStyles } from "../../styles";
+import { styles } from "../../styles";
 
 type Props = {
   navigation: any;
 };
 
 const ActionScreen = (props: Props) => (
-  <View style={ActionScreenStyles.container}>
-    <Button
-      mode="contained"
-      onPress={() => props.navigation.navigate("Service")}
-    >
-      Book Now
-    </Button>
+  <View style={styles.topContainer}>
+    <View style={styles.floatMiddle}>
+      <Button
+        mode="contained"
+        onPress={() => props.navigation.navigate("Service")}
+      >
+        Book Now
+      </Button>
+    </View>
   </View>
 );
 

@@ -65,8 +65,8 @@ const ClientScheduleScreen = (props: ClientScheduleScreenProps) => {
                 x.dateTime.toFormat("yyyy-MM-dd") ===
                 selectedDate.toFormat("yyyy-MM-dd")
             )
-            .map((filteredDate) => (
-              <>
+            .map((filteredDate, idx) => (
+              <View key={idx}>
                 <View style={styles.row}>
                   <Text style={styles.bold}>
                     {filteredDate.dateTime.toLocaleString(DateTime.TIME_SIMPLE)}
@@ -76,7 +76,7 @@ const ClientScheduleScreen = (props: ClientScheduleScreenProps) => {
                   </Text>
                 </View>
                 <Divider />
-              </>
+              </View>
             ))}
         </Card.Content>
       </Card>

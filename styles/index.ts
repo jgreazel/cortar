@@ -1,1 +1,1 @@
-export { default as ActionScreenStyles } from './ActionScreen';
+export { default as styles } from './styles';

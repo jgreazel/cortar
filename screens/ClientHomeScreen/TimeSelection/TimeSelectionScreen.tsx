@@ -6,6 +6,8 @@ import { DateTime } from "luxon";
 import { Ionicons } from "@expo/vector-icons";
 
 import { BookingContext } from "../../../context";
+import { TimeSelect } from "../../../components";
+import { styles } from "../../../styles";
 
 // todo container to get available times per day from server
 export type TimeSelectionViewProps = {
@@ -18,7 +20,7 @@ export type TimeSelectionViewProps = {
 // todo time slots need to be based on appointment time
 // todo for performance later on may need to query appts per month
 const TimeSelectionScreen = (props: TimeSelectionViewProps) => {
-  const [date, setDate] = useState<string>();
+  const [date, setDate] = useState<string>("");
   const { dateTime, setDateTime, services, scheduledAppointments } =
     useContext(BookingContext);
   const apptLength = services.reduce(
@@ -32,7 +34,7 @@ const TimeSelectionScreen = (props: TimeSelectionViewProps) => {
   // if default will be today, will need initial request for avail times today
 
   return (
-    <View>
+    <View style={styles.topContainer}>
       {/* <Button onPress={() => console.log({ dateTime })}>log</Button> */}
       {/* <Button onPress={() => console.log({ now: DateTime.now() })}>
         log now
@@ -53,63 +55,28 @@ const TimeSelectionScreen = (props: TimeSelectionViewProps) => {
           [date!]: { selected: true, selectedColor: "#3182CE" },
         }}
       />
-      <View style={styles.flex}>
-        <Title>Time</Title>
-        <Ionicons
-          // @ts-ignore
-          name="time-outline"
-          size={24}
+      <View style={styles.centerContainer}>
+        <TimeSelect
+          availableTimes={props.availableTimes}
+          selected={dateTime}
+          onSelect={(v) => setDateTime(v)}
         />
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {props.availableTimes.map((x) => (
-          <Chip
-            style={styles.chips}
-            key={x.toString()}
-            selected={x === dateTime}
-            onPress={() => setDateTime(x)}
-          >
-            {x.toLocaleString(DateTime.TIME_SIMPLE)}
-          </Chip>
-        ))}
-      </ScrollView>
-
-      {dateTime.toString() !==
-        DateTime.local(1998, 8, 15, 17, 55).toString() && (
+      <View style={styles.floatBottom}>
         <Button
-          style={styles.button}
           mode="contained"
           onPress={() => console.log({ dateTime, services })}
+          disabled={
+            dateTime.toString() ===
+            DateTime.local(1998, 8, 15, 17, 55).toString()
+          }
         >
           Next
         </Button>
-      )}
+      </View>
     </View>
   );
 };
 
 export default TimeSelectionScreen;
-
-const styles = StyleSheet.create({
-  chips: {
-    margin: 5,
-    backgroundColor: "#fff",
-  },
-  container: {
-    backgroundColor: "#F0F1F2",
-    alignItems: "center",
-  },
-  button: {
-    alignSelf: "center",
-  },
-  flex: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: 'center',
-    margin: 10
-  },
-  timeRow: {
-    margin: 10,
-  },
-});

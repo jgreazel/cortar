@@ -1,14 +1,25 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
 
 import {
   ClientHomeNav,
   NavBarProps,
   NavBar,
   ClientScheduleNav,
-  ClientFeedNav
+  ClientFeedNav,
 } from "./navigation";
 import { ClientProfileScreen } from "./screens";
+
+const theme = {
+  ...DefaultTheme,
+  roundness: 4,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#3182CE',
+    accent: '#163d61',
+  },
+};
 
 const screens: NavBarProps["screens"] = [
   { name: "Home", component: ClientHomeNav, iconString: "home" },
@@ -23,9 +34,11 @@ const screens: NavBarProps["screens"] = [
 
 export default function App() {
   return (
-    <NavigationContainer>
-      {/* // NavBar renders the proper screens per routes */}
-      <NavBar screens={screens} />
-    </NavigationContainer>
+    <PaperProvider theme={theme}>
+      <NavigationContainer>
+        {/* // NavBar renders the proper screens per routes */}
+        <NavBar screens={screens} />
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
