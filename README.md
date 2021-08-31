@@ -1,2 +1,2 @@
 # cortar
-Appointment booking and payment mobile app to enhance customer interaction and personal brand
+^ It's kinda like a code name. Idk I thought Microsoft's "Project Scarlett" was kind of BA 
