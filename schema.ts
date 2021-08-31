@@ -22,11 +22,12 @@ export const Services = {
 };
 
 export type Post = {
+  id: number,
   title: string,
-  description?: string,
-  image?: string,
+  description: string,
+  imageUrl?: string,
   datePosted: DateTime,
-  featured?: boolean
+  isFeatured: boolean
 }
 
 /**

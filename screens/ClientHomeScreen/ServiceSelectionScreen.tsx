@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { View, StyleSheet } from "react-native";
-import { Button, Card } from "react-native-paper";
-import { Ionicons } from "@expo/vector-icons";
+import { View } from "react-native";
+import { Button } from "react-native-paper";
 
 import { BookingContext } from "../../context";
 import { styles } from "../../styles";
@@ -14,7 +13,6 @@ type Props = {
 
 const ServiceSelectionScreen = (props: Props) => {
   const { services, setServices, servicesOffered } = useContext(BookingContext);
-  const [val, setVal] = React.useState(false);
 
   // todo next: create cards for options and callback to set state
   return (
@@ -39,15 +37,15 @@ const ServiceSelectionScreen = (props: Props) => {
         ))}
       </View>
 
-        <View style={styles.floatBottom}>
-          <Button
-            mode="contained"
-            onPress={() => props.navigation.navigate("Time")}
-            disabled={services.length === 0}
-          >
-            Next
-          </Button>
-        </View>
+      <View style={styles.floatBottom}>
+        <Button
+          mode="contained"
+          onPress={() => props.navigation.navigate("Time")}
+          disabled={services.length === 0}
+        >
+          Next
+        </Button>
+      </View>
     </View>
   );
 };

@@ -12,6 +12,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  spaceBetween: {
+    justifyContent: "space-between",
+  },
+  blueText: {
+    color: "#3182CE",
+  },
+  image: {
+    height: 400,
+    width: "100%",
+    borderRadius: 8,
+  },
+  cardImage: {
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+  },
   card: {
     width: "90%",
     margin: 8,
@@ -34,6 +49,17 @@ const styles = StyleSheet.create({
     bottom: 30,
     alignSelf: "center",
   },
+  filterButton: {
+    // height: 24,
+    // width: 24,
+    borderRadius: 50
+  },
+  floatRight: {
+    position: "absolute",
+    bottom: 30,
+    right: 30,
+    alignSelf: "center",
+  },
   floatMiddle: {
     position: "absolute",
     bottom: "50%",
@@ -44,6 +70,14 @@ const styles = StyleSheet.create({
   },
   padding: {
     padding: 10,
+  },
+  noPadding: {
+    padding: 0,
+  },
+  paddingTRL: {
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
   paddingY: {
     paddingTop: 10,
