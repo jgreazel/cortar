@@ -2,28 +2,28 @@ import React, { useContext } from "react";
 import { View } from "react-native";
 import { Button } from "react-native-paper";
 
-import { BookingContext } from "../../context";
-import { styles } from "../../styles";
-import { ServiceCard } from "../../components";
+import { BookingContext } from "../../../context";
+import { styles } from "../../../styles";
+import { ServiceCard } from "../../../components";
 
-// todo add data for choices, mock it, create container for it
 type Props = {
-  navigation: any;
+  // todo need to type data
+  // todo need an empty return state for no services
+  data: any;
+  onNextClick: () => Function;
 };
 
 const ServiceSelectionScreen = (props: Props) => {
+  // todo the whole context and how im handling this form need re-evaluated
   const { services, setServices, servicesOffered } = useContext(BookingContext);
 
-  // todo next: create cards for options and callback to set state
   return (
     <View style={styles.topContainer}>
-      {/* // todo def need to something better about this */}
-      {/* // data will likely come in through a prop from container from server and be mapped */}
       <View style={styles.centerContainer}>
-        {servicesOffered.map((offeredService) => (
+        {props.data.services.map((offeredService: any) => (
           <ServiceCard
-            key={offeredService.name}
-            title={offeredService.name}
+            key={offeredService.id}
+            title={offeredService.title}
             value={services.includes(offeredService)}
             onChange={() =>
               services.includes(offeredService)
@@ -40,7 +40,7 @@ const ServiceSelectionScreen = (props: Props) => {
       <View style={styles.floatBottom}>
         <Button
           mode="contained"
-          onPress={() => props.navigation.navigate("Time")}
+          onPress={props.onNextClick}
           disabled={services.length === 0}
         >
           Next
